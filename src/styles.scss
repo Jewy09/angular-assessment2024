@@ -3,17 +3,24 @@
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 
+
+@font-face {
+  font-family: 'Graphik';
+  src: url('../public/GraphikFontFamily/GraphikRegular.otf');
+}
+
+
 html {
   @include mat.theme((
     color: (
       theme-type: light,
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
+      primary: mat.$rose-palette,
+      tertiary: mat.$violet-palette,
     ),
-    typography: Roboto,
+    typography: Graphik,
     density: 0,
   ));
 }/* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Graphik; margin: 48px 150px 0px 150px;}
