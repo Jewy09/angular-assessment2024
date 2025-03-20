@@ -13,21 +13,33 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const contact = await Contact.findById(req.params.id);
+    if (!contact) {
+      return res.status(404).json({ message: "Contact not found" });
+    }
+    res.json(contact);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 // POST - Create a new contact
 router.post("/", async (req, res) => {
   const { phone, email } = req.body;
 
   try {
     // Check if email or phone already exists
-    const existingEmail = await Contact.findOne({ email }).exec();
-    const existingPhone = await Contact.findOne({ phone }).exec();
+    // const existingEmail = await Contact.findOne({ email }).exec();
+    // const existingPhone = await Contact.findOne({ phone }).exec();
 
-    if (existingEmail) {
-      return res.status(400).json({ message: "Email already exists" });
-    }
-    if (existingPhone) {
-      return res.status(400).json({ message: "Phone already exists" });
-    }
+    // if (existingEmail) {
+    //   return res.status(400).json({ message: "Email already exists" });
+    // }
+    // if (existingPhone) {
+    //   return res.status(400).json({ message: "Phone already exists" });
+    // }
 
     const newContact = new Contact(req.body);
     await newContact.save();

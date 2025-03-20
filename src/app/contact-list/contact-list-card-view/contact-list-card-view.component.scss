@@ -1,6 +1,41 @@
-.card{
+mat-card{
   height: 100px;
   width: 300px;
   gap: 2px;
+  background-color: #FFFFFF;
+  border: 1px solid #B3B2B5;
+  border-radius: 8px;
+  margin-top: 10px;
+}
 
+mat-card-header{
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-between;
+  margin-top: -8px;
+
+
+  a{
+    color: #000000;
+    font-weight: 600;
+    font-size: 18px;
+  }
+}
+
+mat-card-actions{
+  display: flex;
+  align-items: start;
+  gap: 16px;
+  mat-icon{
+    font-size: 22px;
+    cursor: pointer;
+  }
+}
+
+mat-card-content{
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: -15px;
+  margin-bottom: 20px;
 }

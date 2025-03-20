@@ -26,10 +26,10 @@ export class ContactListComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
 
 
- 
+  // ✅ Keeping Observables
   contacts$: Observable<Contact[]>;
 
- 
+  // ✅ Keeping View Mode as a normal variable
   viewMode: 'card' | 'table' = 'card';
 
   constructor(private dialog: MatDialog, private contactService: ContactService) {
@@ -37,7 +37,7 @@ export class ContactListComponent implements OnInit {
   }
 
 ngOnInit(): void {
-    this.contactService.fetchContacts(); 
+    this.contactService.fetchContacts(); // ✅ Load contacts on init
   }
   onChangeView(mode: 'card' | 'table'): void {
     this.viewMode = mode;
@@ -47,13 +47,13 @@ ngOnInit(): void {
 
     dialogRef.afterClosed().subscribe((newContact: Contact) => {
       if (newContact) {
-        this.contactService.addContacts(newContact).subscribe(); 
+        this.contactService.addContacts(newContact).subscribe(); // ✅ Automatically updates UI
       }
     });
   }
 openEditContact(contact: Contact): void {
   const dialogRef = this.dialog.open(ContactFormModalComponent, {
-    data: contact, 
+    data: contact, // ✅ Pass existing contact data
   });
 
   dialogRef.afterClosed().subscribe((updatedContact: Contact) => {
@@ -72,7 +72,7 @@ onDeleteContact(id: string): void {
     if (confirmed) {
       this.contactService.deleteContact(id).subscribe(() => {
         console.log(`Deleted contact with ID: ${id}`);
-        this.contactService.fetchContacts();
+        this.contactService.fetchContacts(); 
       });
     }
   });

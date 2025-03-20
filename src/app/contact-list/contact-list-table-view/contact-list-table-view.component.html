@@ -1,32 +1,36 @@
 <table mat-table [dataSource]="contacts" class="mat-elevation-z8">
-  <!-- Name Column -->
+ 
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let contact"> {{ contact.name }} </td>
+    <td mat-cell *matCellDef="let contact">   
+      <a [routerLink]="['/contact', contact._id]">{{ contact.name }}</a> 
+    </td>
   </ng-container>
 
-  <!-- Contact Number Column -->
+ 
   <ng-container matColumnDef="phone">
     <th mat-header-cell *matHeaderCellDef> Contact Number </th>
     <td mat-cell *matCellDef="let contact"> {{ contact.phone }} </td>
   </ng-container>
 
-  <!-- Email Column -->
   <ng-container matColumnDef="email">
     <th mat-header-cell *matHeaderCellDef> Email Address </th>
     <td mat-cell *matCellDef="let contact"> {{ contact.email }} </td>
   </ng-container>
 
-  <!-- Actions Column -->
+ 
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let contact">
-      <mat-icon (click)="editContact(contact)">edit</mat-icon>
-      <mat-icon (click)="deleteContact(contact)">delete</mat-icon>
+    <td mat-cell *matCellDef="let contact" >
+      <div>
+        <mat-icon (click)="editContact(contact)">edit</mat-icon>
+        <mat-icon (click)="delete.emit(contact._id)">delete</mat-icon>
+      </div>
+      
     </td>
   </ng-container>
 
-  <!-- Table Headers & Rows -->
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let contact; columns: displayedColumns;"></tr>
 </table>

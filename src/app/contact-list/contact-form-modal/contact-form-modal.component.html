@@ -1,0 +1,42 @@
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+     
+      <input matInput formControlName="name"  />
+      @if (form.get('name')?.hasError('required')) {
+    <mat-error>Please enter a name</mat-error>
+  }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Contact Number</mat-label>
+      <input matInput maxlength="11" formControlName="phone" (keypress)="onPhoneKeyPress($event)"
+    pattern="[0-9]*" />
+      @if (form.get('phone')?.hasError('required')) {
+    <mat-error>Please enter a contact number</mat-error>
+  }
+  @if (form.get('phone')?.hasError('pattern')) {
+    <mat-error>Contact number must be 11 digits</mat-error>
+  }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email Address</mat-label>
+      <input matInput formControlName="email" />
+      @if (form.get('email')?.hasError('required')) {
+    <mat-error>Please enter an Email address</mat-error>
+  }
+  @if (form.get('email')?.hasError('invalidEmail')) {
+    <mat-error>Please enter a valid Email address</mat-error>
+  }
+    </mat-form-field>
+
+    <mat-dialog-actions align="end">
+      <button mat-button (click)="onClose()">Cancel</button>
+      <button mat-flat-button color="primary" (click)="onSubmit()" [disabled]="form.invalid">
+        {{ data ? 'Save Changes' : 'Add Contact' }}
+      </button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

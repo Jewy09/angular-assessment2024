@@ -9,3 +9,18 @@ mat-grid-list {
   margin-left: -30px;
   margin-right: -30px;
 }
+
+mat-icon.active {
+  pointer-events: none;
+}
+
+
+mat-icon.inactive {
+  color: gray;
+  cursor: pointer;
+  opacity: 20%;
+}
+
+
+
+

@@ -24,3 +24,63 @@ html {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Graphik; margin: 48px 150px 0px 100px;}
+
+// .mat-mdc-snack-bar-container .mat-mdc-snackbar-surface{
+//   background-color: transparent !important;
+//   color: transparent !important;
+// }
+// .mat-mdc-snack-bar-container .mdc-snackbar__label{
+//   background-color: transparent !important;
+// }
+
+// .mdc-snackbar__label{
+//   padding: 0px !important;
+// }
+
+.mat-mdc-snack-bar-container .mdc-snackbar__label{
+  .snackbar-content{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    border-radius: 5px;
+  }
+}
+
+:root {
+  @include mat.snack-bar-overrides((
+    container-color: #05F0A580,
+    supporting-text-color: #000000,
+
+  ));
+}
+
+:root {
+  .mat-mdc-button {
+  --mdc-text-button-label-text-color: #4F4B53;
+  font-weight: 600;
+  border: 2px solid  #A100FF;
+
+}
+.mat-mdc-button:hover {
+ /* Darker border on hover */
+  background-color: #A100FF;
+  color: white;
+}
+
+// .mat-mdc-flat-button {
+//   --mdc-filled-button-container-color: #A100FF;
+//   --mdc-filled-disabled-container-color: #E5E5E5,
+//   --mdc-filled-disabled-label-text-color:#4F4B53,
+//   // padding: 8px 16px;
+//   // border-radius: 8px;
+// }
+  @include mat.button-overrides((
+    filled-container-color:  #A100FF,
+
+filled-disabled-container-color: #E5E5E5,
+filled-disabled-label-text-color:#4F4B53,
+filled-label-text-weight: 600,
+filled-label-text-font: 18px,
+  ));
+}

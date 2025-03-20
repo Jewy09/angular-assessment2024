@@ -1,18 +1,19 @@
+<app-header />
 <div>
-  <mat-icon (click)="onChangeView('card')" [class.active]="viewMode==='card'">grid_view</mat-icon>
-  <mat-icon (click)="onChangeView('table')" [class.active]="viewMode==='table'">table_rows</mat-icon>
+  <mat-icon (click)="onChangeView('card')" [class.active]="viewMode==='card'" [class.inactive]="viewMode !== 'card'">grid_view</mat-icon>
+  <mat-icon (click)="onChangeView('table')" [class.active]="viewMode==='table'"[class.inactive]="viewMode !== 'table'">table_rows</mat-icon>
 </div>
 
 @if (viewMode==='card'){
 <mat-grid-list cols="3" rowHeight="3:1">
-  @for (contact of contacts$ | async; track contact.id) {
+  @for (contact of contacts$ | async; track contact) {
     <mat-grid-tile>
-      <app-contact-list-card-view [contact]="contact"></app-contact-list-card-view>
+      <app-contact-list-card-view [contact]="contact" (edit)="openEditContact($event)" (delete)="onDeleteContact($event)"></app-contact-list-card-view>
     </mat-grid-tile>
   }
 </mat-grid-list>
 }
 
 @if (viewMode==='table') {
-<app-contact-list-table-view [contacts]="(contacts$ | async) ?? []"></app-contact-list-table-view>
+<app-contact-list-table-view [contacts]="(contacts$ | async) ?? []" (edit)="openEditContact($event)" (delete)="onDeleteContact($event)"></app-contact-list-table-view>
 }
