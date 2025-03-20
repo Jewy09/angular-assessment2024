@@ -1,19 +1,18 @@
 mat-card{
-  height: 100px;
-  width: 300px;
-  gap: 2px;
+  height: 117px;
+  width: 320px;
   background-color: #FFFFFF;
   border: 1px solid #B3B2B5;
   border-radius: 8px;
-  margin-top: 10px;
 }
 
 mat-card-header{
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: start;
   justify-content: space-between;
-  margin-top: -8px;
+
 
 
   a{
@@ -25,8 +24,9 @@ mat-card-header{
 
 mat-card-actions{
   display: flex;
+  flex-wrap: wrap;
   align-items: start;
-  gap: 16px;
+  gap: 18px;
   mat-icon{
     font-size: 22px;
     cursor: pointer;
@@ -36,6 +36,6 @@ mat-card-actions{
 mat-card-content{
   font-weight: 400;
   font-size: 14px;
-  margin-top: -15px;
-  margin-bottom: 20px;
+  margin-top: -5px;
+  margin-bottom: 15px;
 }

@@ -23,7 +23,7 @@ html {
 }/* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Graphik; margin: 48px 150px 0px 100px;}
+body { margin: 0; font-family: Graphik; margin: 20px 125px 0px 125px;}
 
 // .mat-mdc-snack-bar-container .mat-mdc-snackbar-surface{
 //   background-color: transparent !important;
@@ -40,6 +40,7 @@ body { margin: 0; font-family: Graphik; margin: 48px 150px 0px 100px;}
 .mat-mdc-snack-bar-container .mdc-snackbar__label{
   .snackbar-content{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
     gap: 15px;
@@ -83,4 +84,26 @@ filled-disabled-label-text-color:#4F4B53,
 filled-label-text-weight: 600,
 filled-label-text-font: 18px,
   ));
+}
+
+.mat-mdc-text-field-wrapper,
+.mat-mdc-form-field-flex {
+  height: 40px;
+}
+
+
+:root {
+  --mat-sys-primary: #A100FF;
+}
+
+
+
+.mdc-text-field--outlined .mat-mdc-form-field-infix, .mdc-text-field--no-label .mat-mdc-form-field-infix {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+
+.mat-mdc-dialog-actions.mat-mdc-dialog-actions-align-end, .mat-mdc-dialog-actions[align=end]{
+  justify-content: space-evenly !important;
 }

@@ -1,0 +1,44 @@
+:host {
+  background-color: #f7f7f7;
+  display: block;
+  width: 1500; /* Ensures full-page coverage */
+  padding: 16px;
+  margin: 0px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+mat-icon {
+  cursor: pointer;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 14px;
+  height: 350px;
+  width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 12px;
+  p {
+    color: #837f89;
+    font-weight: 500;
+    font-size: 12px;
+  }
+  h2 {
+    color: #000000;
+    font-weight: 600;
+    font-size: 18px;
+  }
+}

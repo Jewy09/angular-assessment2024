@@ -1,13 +1,13 @@
 div{
   display: flex;
+  flex-wrap: wrap;
   justify-content: end;
   gap: 16px;
 }
 
 mat-grid-list {
-  display: flex;
-  margin-left: -30px;
-  margin-right: -30px;
+  margin-top: 10px;
+  
 }
 
 mat-icon.active {

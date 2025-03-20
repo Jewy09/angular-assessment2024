@@ -5,7 +5,7 @@
 </div>
 
 @if (viewMode==='card'){
-<mat-grid-list cols="3" rowHeight="3:1">
+<mat-grid-list cols="3" rowHeight="5:2">
   @for (contact of contacts$ | async; track contact) {
     <mat-grid-tile>
       <app-contact-list-card-view [contact]="contact" (edit)="openEditContact($event)" (delete)="onDeleteContact($event)"></app-contact-list-card-view>
